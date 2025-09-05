@@ -7,6 +7,11 @@
 // commands please read more here:
 // https://on.cypress.io/custom-commands
 // ***********************************************
+
+// Custom command to validate HTTP 200 for a page load via cy.request
+Cypress.Commands.add('assertHomeOk', () => {
+	cy.request('/').its('status').should('eq', 200)
+})
 //
 //
 // -- This is a parent command --
